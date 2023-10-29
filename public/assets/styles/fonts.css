@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Popping-Regular';
+    src: url("./fonts/Popping/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Popping-Black';
+    src: url("./fonts/Popping/Poppins-Black.ttf");
+}
+
+@font-face {
+    font-family: 'Popping-Bold';
+    src: url("./fonts/Popping/Poppins-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'Popping-Medium';
+    src: url("./fonts/Popping/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: 'Popping-SemiBold';
+    src: url("./fonts/Popping/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: 'Christmas';
+    src: url("./fonts/Christmas/MountainsofChristmas.ttf");
+}

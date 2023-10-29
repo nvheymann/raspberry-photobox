@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adventsbasar Fotobox{% endblock %}
+
+{% block body %}
+    <div class="container border-fotobox-card" id="fotobox-card">
+        <h1 class="mb-5 text-center" style="color: #5e0d0c;">Fotobox</h1>
+        <div class="text-center ">
+            <img src="/assets/styles/images/photo-box.png" class="photobox-icon">
+        </div>
+        <div class="mt-5">
+            <a href="#" id="takePicture" class="button">Christmas Button</a>
+        </div>
+    </div>
+
+    <div class="container d-none" id="countdown-box">
+        <span id="count" style="font-family: 'Christmas', sans-serif;
+    font-size: 150pt;">5</span>
+    </div>
+{% endblock %}

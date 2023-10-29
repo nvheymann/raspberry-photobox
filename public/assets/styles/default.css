@@ -1,0 +1,32 @@
+body {
+    font-family: Popping-Bold, sans-serif;
+    font-size: 16pt;
+
+    background-color: #B94649;
+    background-image: linear-gradient(315deg, #759242 0%, #95A68B 74%);
+
+    margin: 0;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+
+    border: 50px solid transparent;
+    padding: 15px;
+    border-image: url("./images/border.png") 50;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-content: center
+}
+
+h1{
+    font-family: Christmas, sans-serif;
+    font-weight: bolder;
+    font-size: 40pt;
+}
+
+a{
+    font-family: Christmas, sans-serif !important;
+}
