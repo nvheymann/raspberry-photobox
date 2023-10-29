@@ -16,7 +16,7 @@ class PhotoController extends AbstractController
         shell_exec("sudo gphoto2 --wait-event=1s  --set-config autofocusdrive=1 --set-config eosremoterelease=5 --wait-event-and-download=2s --filename $filename --set-config eosremoterelease=4");
         return $this->render('photo/index.html.twig', [
             'controller_name' => 'PhotoController',
-            'file' => $filename
+            'file' => $file
         ]);
     }
 }
