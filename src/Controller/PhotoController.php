@@ -49,7 +49,7 @@ class PhotoController extends AbstractController
     public function save(Request $request): Response
     {
         $fileFullPath = self::FULL_PATH . '/' . $request->attributes->get('photo');
-        $file = '/assets/images/' . $request->attributes->get('photo');
+        $file = '/assets/images/IMG' . $request->attributes->get('photo');
         return $this->render('photo/save.html.twig', [
             'filefullPath' => $fileFullPath,
             'file' => $file
