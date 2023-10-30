@@ -4,3 +4,14 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+photoShow:
+    path: /photo
+    controller: App\Controller\PhotoController::index
+
+photo:
+    path:       /photo/delete/{photo}
+    controller: App\Controller\PhotoController::delete
+
+photoSave:
+    path:       /photo/save/{photo}
+    controller: App\Controller\PhotoController::save

@@ -4,6 +4,10 @@
 
 {% block body %}
 <div class="container">
-    <img src="{{ file }}">
+    <img class="photo" src="{{ file }}">
+    <div class="mt-4 d-flex justify-content-evenly">
+        <a href="/photo/delete/{{ photoname }}" id="takePicture" class="button button-disable">Bild neuaufnehmen</a>
+        <a href="/photo/save/{{ photoname }}" id="takePicture" class="button">Bild speichern</a>
+    </div>
 </div>
 {% endblock %}

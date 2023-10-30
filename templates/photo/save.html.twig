@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PhotoController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <img class="photo" src="{{ file }}">
+        <form class="mt-4 d-flex justify-content-evenly align-items-end" method="post" action="/photo/send">
+            <input type="hidden" name="file" value="{{ filefullPath }}">
+            <div class="form-group" style="width: 65%">
+                <label for="exampleInputEmail1">Email adresse</label>
+                <input type="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                       placeholder="Geben Sie ihre Email-Adresse ein " name="email">
+
+            </div>
+            <button style="height: 30%" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+{% endblock %}
