@@ -59,9 +59,10 @@ class PhotoController extends AbstractController
     #[Route('/photo/send', name: 'app_photo')]
     public function send(Request $request, MailerInterface $mailer): Response
     {
+	
         $email = (new Email())
             ->from('blickfangkosmetik-adventsbasar@gmx.de')
-            ->to($request->attributes->get('email'))
+            ->to($_POST['email'])
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
