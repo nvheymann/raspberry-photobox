@@ -22,7 +22,7 @@ class PhotoController extends AbstractController
         //$photoname = 'IMG10-29-2023.JPG';
         //$file = '/assets/images/IMG10-29-2023.JPG';
 
-        $photoname = date('m-d-Y').'.JPG';
+        $photoname = date('m-d-Y-H-i-s').'.JPG';
         $file = '/assets/images/IMG'. $photoname;
         $filename = self::ABS_FOLDER . $file;
         shell_exec("sudo gphoto2 --wait-event=1s  --set-config autofocusdrive=1 --set-config eosremoterelease=5 --wait-event-and-download=2s --filename $filename --set-config eosremoterelease=4");
@@ -36,10 +36,12 @@ class PhotoController extends AbstractController
     #[Route('/photo/delete/{photo}', name: 'app_photo')]
     public function delete(Request $request): Response
     {
+
         try {
-            $file = self::FULL_PATH . '/' . $request->attributes->get('photo') ?? throw new \Exception('no file');
+            $file =  '/var/www/html/raspberry-photobox/public/assets/images/IMG' . $request->attributes->get('photo') ?? throw new \Exception('no file');
             unlink($file);
         }catch (\Exception $exception){
+
             return $this->redirect('/');
         }
         return $this->redirect('/');
@@ -48,7 +50,7 @@ class PhotoController extends AbstractController
     #[Route('/photo/save/{photo}', name: 'app_photo')]
     public function save(Request $request): Response
     {
-        $fileFullPath = self::FULL_PATH . '/' . $request->attributes->get('photo');
+        $fileFullPath = self::FULL_PATH . '/IMG' . $request->attributes->get('photo');
         $file = '/assets/images/IMG' . $request->attributes->get('photo');
         return $this->render('photo/save.html.twig', [
             'filefullPath' => $fileFullPath,
@@ -59,18 +61,14 @@ class PhotoController extends AbstractController
     #[Route('/photo/send', name: 'app_photo')]
     public function send(Request $request, MailerInterface $mailer): Response
     {
-	
-        $email = (new Email())
-            ->from('blickfangkosmetik-adventsbasar@gmx.de')
-            ->to($_POST['email'])
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>');
 
+        $email = (new Email())
+            ->from('blickfangkosmetik2014@gmail.com')
+            ->to($_POST['email'])
+            ->attachFromPath($_POST["file"], "Adventsbasar 2023: Fotobox.JPG")
+            ->subject('Fotobox: Adventsbasar2023')
+            ->html('<p>Danke das Sie uns besucht haben viel Spaß mit ihrem Bild!</p>');
+	//dd($email);
         $mailer->send($email);
 
         return $this->redirect('/');
